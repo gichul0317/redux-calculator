@@ -1,38 +1,47 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  previousVal: 0,
-  currentVal: 0,
+  previousVal: '0',
+  currentVal: '0',
+  operator: '',
 };
 
 const calculatorSlice = createSlice({
   name: 'calculator',
   initialState: initialState,
   reducers: {
-    add(state, action) {
-      state.add += action.payload;
-    },
-    subtract(state, action) {
-      state.subtract -= action.payload;
-    },
-    multiply(state, action) {
-      state.multiply *= action.payload;
-    },
-    divide(state, action) {
-      state.divide /= action.payload;
-    },
-    percentage(state, action) {
-      state.percentage = state.percentage;
-    },
-    sign(state) {
-      state.sign = -1 * state.sign;
-    },
     clear(state) {
-      state.previousVal = 0;
-      state.currentVal = 0;
+      state.previousVal = '0';
+      state.currentVal = '0';
     },
-    add(state, action) {
-      state.currentVal = action.payload;
+    input(state, action) {
+      state.currentVal = state.currentVal.replace(/^0+/, '') + action.payload;
+      // console.log(state.currentVal);
+    },
+    add(state) {
+      state.previousVal = state.currentVal;
+      // console.log(state.previousVal);
+      state.currentVal = '0';
+      state.operator = 'add';
+      // console.log(state.currentVal);
+    },
+    subtract(state) {
+      state.previousVal = state.currentVal;
+      state.currentVal = '0';
+      state.operator = 'subtract';
+    },
+    calculate(state) {
+      if (state.operator === 'add') {
+        state.currentVal = String(
+          parseFloat(state.previousVal) + parseFloat(state.currentVal)
+        );
+        console.log(state.currentVal);
+        console.log(state.previousVal);
+      } else if (state.operator === 'subtract') {
+        state.currentVal = String(
+          parseFloat(state.previousVal) - parseFloat(state.currentVal)
+        );
+      }
     },
   },
 });

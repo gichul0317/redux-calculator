@@ -1,8 +1,7 @@
 .app {
   display: grid;
-  justify-content: center;
   grid-template-columns: repeat(4, 150px);
-  grid-template-rows: minmax(150px, auto) repeat(5, 150px);
+  grid-template-rows: minmax(180px, auto) repeat(5, 140px);
 }
 
 .output {
