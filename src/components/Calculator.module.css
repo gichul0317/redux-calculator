@@ -1,5 +1,6 @@
 .app {
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(4, 150px);
   grid-template-rows: minmax(150px, auto) repeat(5, 150px);
 }
@@ -22,11 +23,11 @@
 
 .previous {
   color: #fff;
-  font-size: 30px;
+  font-size: 32px;
 }
 
 .current {
-  font-size: 42px;
+  font-size: 54px;
   color: #fff;
 }
 

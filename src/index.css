@@ -13,8 +13,6 @@ body {
   width: 100vw;
   height: 100vh;
   padding: 20px 45px;
-  display: flex;
-  justify-content: center;
   overflow: hidden;
   background-color: rgb(125, 128, 138);
 }

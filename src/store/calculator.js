@@ -1,13 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  add: 0,
-  subtract: 0,
-  multiply: 0,
-  divide: 0,
-  percentage: 0,
-  sign: 0,
-  clear: 0,
+  previousVal: 0,
+  currentVal: 0,
+  expression: '',
 };
 
 const calculatorSlice = createSlice({
@@ -33,7 +29,11 @@ const calculatorSlice = createSlice({
       state.sign = -1 * state.sign;
     },
     clear(state) {
-      state.clear = 0;
+      state.previousVal = 0;
+      state.currentVal = 0;
+    },
+    add(state) {
+      state.currentVal += 2;
     },
   },
 });
