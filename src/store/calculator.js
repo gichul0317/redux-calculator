@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   previousVal: 0,
   currentVal: 0,
-  expression: '',
 };
 
 const calculatorSlice = createSlice({
@@ -32,8 +31,8 @@ const calculatorSlice = createSlice({
       state.previousVal = 0;
       state.currentVal = 0;
     },
-    add(state) {
-      state.currentVal += 2;
+    add(state, action) {
+      state.currentVal = action.payload;
     },
   },
 });

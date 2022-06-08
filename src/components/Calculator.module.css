@@ -17,10 +17,6 @@
   word-break: break-all;
 }
 
-.tworows {
-  grid-column: span 2;
-}
-
 .previous {
   color: #fff;
   font-size: 32px;
@@ -29,25 +25,4 @@
 .current {
   font-size: 54px;
   color: #fff;
-}
-
-button {
-  cursor: pointer;
-  font-size: 28px;
-  background-color: rgb(91, 93, 98);
-  color: #fff;
-  border: 1px solid #fff;
-}
-
-button:hover,
-button:focus {
-  opacity: 0.45;
-}
-
-.darkbtn {
-  background-color: rgb(58, 61, 66);
-}
-
-.orangebtn {
-  background-color: rgb(255, 148, 33);
 }
