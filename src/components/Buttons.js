@@ -22,6 +22,14 @@ function Buttons(props) {
     dispatch(calculatorActions.subtract());
   };
 
+  const multiplyHandler = () => {
+    dispatch(calculatorActions.multiply());
+  };
+
+  const divideHandler = () => {
+    dispatch(calculatorActions.divide());
+  };
+
   const calculate = () => {
     dispatch(calculatorActions.calculate());
   };
@@ -37,7 +45,12 @@ function Buttons(props) {
         AC
       </button>
       <button className={styles.darkbtn}>+/-</button>
-      <button className={styles.orangebtn} id="divide" type="operator">
+      <button
+        onClick={divideHandler}
+        className={styles.orangebtn}
+        id="divide"
+        type="operator"
+      >
         /
       </button>
       <button onClick={inputHandler} value={7} type="number">
@@ -49,7 +62,12 @@ function Buttons(props) {
       <button onClick={inputHandler} value={9} type="number">
         9
       </button>
-      <button className={styles.orangebtn} id="multiply" type="operator">
+      <button
+        onClick={multiplyHandler}
+        className={styles.orangebtn}
+        id="multiply"
+        type="operator"
+      >
         *
       </button>
       <button onClick={inputHandler} value={4} type="number">

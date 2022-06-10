@@ -13,6 +13,7 @@ const calculatorSlice = createSlice({
     clear(state) {
       state.previousVal = '0';
       state.currentVal = '0';
+      state.operator = '';
     },
     input(state, action) {
       state.currentVal = state.currentVal.replace(/^0+/, '') + action.payload;
@@ -30,6 +31,16 @@ const calculatorSlice = createSlice({
       state.currentVal = '0';
       state.operator = 'subtract';
     },
+    multiply(state) {
+      state.previousVal = state.currentVal;
+      state.currentVal = '0';
+      state.operator = 'multiply';
+    },
+    divide(state) {
+      state.previousVal = state.currentVal;
+      state.currentVal = '0';
+      state.operator = 'divide';
+    },
     calculate(state) {
       if (state.operator === 'add') {
         state.currentVal = String(
@@ -40,6 +51,14 @@ const calculatorSlice = createSlice({
       } else if (state.operator === 'subtract') {
         state.currentVal = String(
           parseFloat(state.previousVal) - parseFloat(state.currentVal)
+        );
+      } else if (state.operator === 'multiply') {
+        state.currentVal = String(
+          parseFloat(state.previousVal) * parseFloat(state.currentVal)
+        );
+      } else if (state.operator === 'divide') {
+        state.currentVal = String(
+          parseFloat(state.previousVal) / parseFloat(state.currentVal)
         );
       }
     },
