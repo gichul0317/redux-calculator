@@ -14,6 +14,14 @@ function Buttons(props) {
     dispatch(calculatorActions.clear());
   };
 
+  const signHandler = () => {
+    dispatch(calculatorActions.sign());
+  };
+
+  const decimalPointHandler = (e) => {
+    dispatch(calculatorActions.decimal(e.target.value));
+  };
+
   const addHandler = () => {
     dispatch(calculatorActions.add());
   };
@@ -44,7 +52,9 @@ function Buttons(props) {
       >
         AC
       </button>
-      <button className={styles.darkbtn}>+/-</button>
+      <button onClick={signHandler} className={styles.darkbtn}>
+        +/-
+      </button>
       <button
         onClick={divideHandler}
         className={styles.orangebtn}
@@ -99,8 +109,12 @@ function Buttons(props) {
       <button onClick={addHandler} className={styles.orangebtn}>
         +
       </button>
-      <button className={styles.tworows}>0</button>
-      <button>.</button>
+      <button onClick={inputHandler} className={styles.tworows} value={0}>
+        0
+      </button>
+      <button onClick={decimalPointHandler} value={'.'}>
+        .
+      </button>
       <button onClick={calculate} className={styles.orangebtn}>
         =
       </button>

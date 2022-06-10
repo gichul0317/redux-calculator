@@ -15,9 +15,18 @@ const calculatorSlice = createSlice({
       state.currentVal = '0';
       state.operator = '';
     },
+    sign(state) {
+      state.currentVal = String(parseFloat(state.currentVal) * -1);
+    },
     input(state, action) {
       state.currentVal = state.currentVal.replace(/^0+/, '') + action.payload;
+
       // console.log(state.currentVal);
+    },
+    decimal(state, action) {
+      if (state.currentVal.indexOf('.') === -1) {
+        state.currentVal = state.currentVal + action.payload;
+      }
     },
     add(state) {
       state.previousVal = state.currentVal;
