@@ -55,8 +55,8 @@ const calculatorSlice = createSlice({
         state.currentVal = String(
           parseFloat(state.previousVal) + parseFloat(state.currentVal)
         );
-        console.log(state.currentVal);
-        console.log(state.previousVal);
+        // console.log(state.currentVal);
+        // console.log(state.previousVal);
       } else if (state.operator === 'subtract') {
         state.currentVal = String(
           parseFloat(state.previousVal) - parseFloat(state.currentVal)

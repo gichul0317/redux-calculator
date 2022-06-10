@@ -8,20 +8,33 @@
   grid-column: 1 / -1;
   background-color: rgb(36, 39, 46);
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-around;
-  padding: 10px;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 15px 25px;
   word-wrap: break-word;
   word-break: break-all;
 }
 
-.previous {
+/* .previous {
   color: #fff;
   font-size: 32px;
-}
+} */
 
 .current {
-  font-size: 54px;
+  font-size: 72px;
   color: #fff;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .app {
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .app {
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+  }
 }
